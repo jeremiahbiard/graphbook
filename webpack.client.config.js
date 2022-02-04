@@ -1,16 +1,16 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-const buildDirectory = 'dist';
-const outputDirectory = buildDirectory + '/client';
+const buildDirectory = "dist";
+const outputDirectory = buildDirectory + "/client";
 
 module.exports = {
   mode: 'development',
-  entry: './src/client/index.js',
+  entry: "./src/client/index.js",
   output: {
     path: path.join(__dirname, outputDirectory),
-    filename: 'bundle.js',
+    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -18,12 +18,12 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
@@ -34,7 +34,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: "./public/index.html",
     }),
   ],
 };
